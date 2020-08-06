@@ -1,0 +1,12 @@
+pip源:
+    - 阿里云 http://mirrors.aliyun.com/pypi/simple/
+    - 中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/
+    - 豆瓣(douban) http://pypi.douban.com/simple/
+    - 清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/
+    - 中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/
+    - 使用“–trusted host pypi.douban.com”允许此警告。
+安装包:
+    - pip install djangorestframework markdown django-filter
+    - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple djangorestframework
+    - pip install markdown
+    - pip install django-filter
