@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
+    # 'myusers.apps.MyusersConfig',  django已经自行添加
     'rest_framework',
+    'users',
 ]
 
 MIDDLEWARE = [
