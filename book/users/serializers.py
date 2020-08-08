@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import UserProfile, Book
 
 
+# 第一种序列方式
 class BookSerializer(serializers.Serializer):
     title = serializers.CharField(required=True, max_length=100)
     isbn = serializers.CharField(required=True, max_length=100)
@@ -10,6 +11,7 @@ class BookSerializer(serializers.Serializer):
     rate = serializers.FloatField(default=0)
 
 
+# 第二种序列方式
 class BookModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
