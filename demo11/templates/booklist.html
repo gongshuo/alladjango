@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for t in list %}
+    <div>
+    <a href="/book/{{ t.id }}/">
+        书名：《{{ t.title }}》
+        </a>
+    </div>
+    <div>
+        浏览量：{{ t.pv }}
+    </div>
+{% endfor %}
+</body>
+</html>

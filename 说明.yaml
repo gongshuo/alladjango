@@ -10,3 +10,24 @@ pip源:
     - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple djangorestframework
     - pip install markdown
     - pip install django-filter
+    - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pillow
+    - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple django-guardian
+    - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple coreapi
+    - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple Django-cors-headers  # 解决跨域问题
+    - pip install djangorestframework markdown Django-filter
+    - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple djangorestframework-jwt
+    - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pycryptodome
+    - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple drf-extensions
+    - pip install -i https://pypi.tuna.tsinghua.edu.cn/simple django-redis
+
+vue安装:
+    - 下载node.js安装包
+    - 查看版本 node -v
+    - 安装淘宝镜像cnpm：  npm install –g cnpm --registry=HTTPS://registry.npm.taobao.org
+    - 安装Vue.js的脚手架工具： cnpm install --global vue-cli
+    - 创建项目 vue init webpack-simple demo1
+    - 进入项目目录，安装依赖： cnpm install
+    - 运行初始项目：npm run dev
+    - demo1 :cnpm install axios --save
+
+

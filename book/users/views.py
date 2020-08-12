@@ -7,12 +7,12 @@ from rest_framework.response import Response
 
 class BookAPIView1(APIView):
     """
-    使用Serializer
+    第一种方式，使用Serializer
     """
     def get(self, request, format=None):
         APIKey = self.request.query_params.get("apikey", 0)
-        developer = UserProfile.objects.filter(APIkey=APIKey).first()
         # APIKey = request.GET['apikey']  # 同上
+        developer = UserProfile.objects.filter(APIkey=APIKey).first()
         if developer:
             balance = developer.money
             if balance > 0:
@@ -31,7 +31,7 @@ class BookAPIView1(APIView):
 
 class BookAPIView2(APIView):
     """
-        使用ModelSerializer
+    第二种方式，使用ModelSerializer
     """
     def get(self, request, format=None):
         APIKey = self.request.query_params.get("apikey", 0)
@@ -42,7 +42,7 @@ class BookAPIView2(APIView):
             if balance > 0:
                 isbn = self.request.query_params.get("isbn", 0)
                 books = Book.objects.filter(isbn=int(isbn))
-                books_serializer = BookModelSerializer(books, many=True)
+                books_serializer = BookModelSerializer(books, many=True)   # 区别
                 developer.money -= 1
                 developer.save()
                 return Response(books_serializer.data)
@@ -57,6 +57,9 @@ from rest_framework import generics
 
 
 class BookMixinView1(mixins.ListModelMixin, generics.GenericAPIView):
+    """
+    第三种方式
+    """
     # 使用mixins.ListModelMixin + generics.GenericAPIView对APIView进行一次封装，至少需要加一个get函数：
     queryset = Book.objects.all()
     serializer_class = BookModelSerializer
@@ -80,6 +83,9 @@ class BookMixinView1(mixins.ListModelMixin, generics.GenericAPIView):
 
 
 class BookMixinView2(generics.ListAPIView):
+    """
+    第四种方式
+    """
     # 使用generics.ListAPIView则可以不用加get这个函数，
     # 因为generics.ListAPIView相对于mixins.ListModelMixin+generics.GenericAPIView而言，
     # 所谓的封装，就是封装了一个get函数罢了。
@@ -138,7 +144,11 @@ class EnoughMoney(BasePermission):
 
 
 class BookModelViewSet(viewsets.ModelViewSet):
+    """
+    第五种方式
+    """
     authentication_classes = []
+    # Django REST framework的权限组件有一个原则，即没有认证就没有权限！
     permission_classes = [IsDeveloper, EnoughMoney]
     queryset = Book.objects.all()
     serializer_class = BookModelSerializer

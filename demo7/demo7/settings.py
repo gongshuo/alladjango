@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'app01'
+    'app01',
+    'corsheaders'
 ]
 
 AUTH_USER_MODEL='app01.UserProfile'
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # 放到中间件顶部
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +56,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'demo7.urls'
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
